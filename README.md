@@ -3,6 +3,7 @@
 [![Project Page](https://img.shields.io/badge/Project-Coming_Soon-blue)](#)
 [![Paper](https://img.shields.io/badge/Paper-CVPR_2026-green)](#)
 [![arXiv](https://img.shields.io/badge/arXiv-Coming_Soon-b31b1b)](#)
+[![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-ffcc4d)](#)
 
 > Training-free generative inbetweening with improved semantic fidelity, frame consistency, and pace stability.
 
