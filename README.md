@@ -8,6 +8,8 @@
 Tae Eun Choi* · Sumin Shim* · Junhyeok Kim · Seong Jae Hwang
 </h3>
 
+<h3>Yonsei University</h3>
+
 <br>
 
 [![Project Website](https://img.shields.io/badge/Project-Page-blue)](https://teunchoi.github.io/TGI-project-page/) 
