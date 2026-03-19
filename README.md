@@ -14,6 +14,8 @@ Tae Eun Choi* · Sumin Shim* · Junhyeok Kim · Seong Jae Hwang
 
 </div>
 
+<br>
+<br>
 <p align="center">
   <img src="figure.png" width="100%">
 </p>
