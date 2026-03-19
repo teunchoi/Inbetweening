@@ -1,14 +1,13 @@
 <div align="center">
 
-# *Anchoring and Rescaling Attention for Semantically Coherent Inbetweening*
+# Anchoring and Rescaling Attention for Semantically Coherent Inbetweening
 
 ---
 
 ## CVPR 2026
 
-### <span style="color:#1565c0">Tae Eun Choi</span><sup>1</sup> · <span style="color:#1565c0">Sumin Shim</span><sup>1</sup> · <span style="color:#1565c0">Junhyeok Kim</span><sup>1</sup> · <span style="color:#1565c0">Seong Jae Hwang</span><sup>1</sup>
+### <span style="color:#1565c0">Tae Eun Choi\*</span> · <span style="color:#1565c0">Sumin Shim\*</span> · <span style="color:#1565c0">Junhyeok Kim</span> · <span style="color:#1565c0">Seong Jae Hwang</span>
 
-<sup>1</sup>Department of Artificial Intelligence
 
 ## Yonsei University
 
@@ -16,7 +15,6 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2603.17651-b31b1b?style=flat-square)](https://arxiv.org/abs/2603.17651)
 [![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-f4b400?style=flat-square)](https://huggingface.co/datasets/use08174/TGI-Benchmark)
 
-</div>
 
 ## Overview
 
