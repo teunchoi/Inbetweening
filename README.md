@@ -2,7 +2,7 @@
 
 # Anchoring and Rescaling Attention for Semantically Coherent Inbetweening
 
-<h2>CVPR 2026</h2>
+<h3>CVPR 2026</h3>
 
 <h3>
 Tae Eun Choi* · Sumin Shim* · Junhyeok Kim · Seong Jae Hwang
