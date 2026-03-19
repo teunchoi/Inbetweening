@@ -2,15 +2,15 @@
 
 # Anchoring and Rescaling Attention for Semantically Coherent Inbetweening
 
+---
 
 ## CVPR 2026
 
 ### <span style="color:#1565c0">Tae Eun Choi\*</span> · <span style="color:#1565c0">Sumin Shim\*</span> · <span style="color:#1565c0">Junhyeok Kim</span> · <span style="color:#1565c0">Seong Jae Hwang</span>
 
-
 ## Yonsei University
 
-[![Project Page](https://img.shields.io/badge/Project-Website-4f4f4f?style=flat-square)](https://teunchoi.github.io/TGI-project-page/)
+[![Project Page](https://img.shields.io/badge/Project-Website-lightgrey?style=flat-square)](https://teunchoi.github.io/TGI-project-page/)
 [![arXiv](https://img.shields.io/badge/arXiv-2603.17651-b31b1b?style=flat-square)](https://arxiv.org/abs/2603.17651)
 [![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-f4b400?style=flat-square)](https://huggingface.co/datasets/use08174/TGI-Benchmark)
 
@@ -20,7 +20,7 @@
 
 This repository contains the official implementation of **Anchoring and Rescaling Attention for Semantically Coherent Inbetweening**, a training-free approach for **text-conditioned generative inbetweening** that improves semantic fidelity, frame consistency, and pace stability. Given the **first frame**, **last frame**, and a **text prompt**, our method generates semantically coherent intermediate frames while enhancing semantic alignment, temporal consistency, and motion pacing without additional model training. We also introduce **TGI-Bench**, a benchmark for evaluating text-conditioned generative inbetweening across diverse sequence lengths and motion scenarios.
 
----
+___
 
 ## Dataset
 
