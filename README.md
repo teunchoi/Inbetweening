@@ -28,10 +28,7 @@ ___
 
 ## Dataset
 
-The **TGI-Bench** dataset is available on Hugging Face:
-
-[https://huggingface.co/datasets/use08174/TGI-Benchmark](https://huggingface.co/datasets/use08174/TGI-Benchmark)
-
+The **TGI-Bench** dataset is available on Hugging Face [here](https://huggingface.co/datasets/use08174/TGI-Benchmark).
 
 ## Installation
 
