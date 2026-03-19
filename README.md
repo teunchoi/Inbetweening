@@ -5,7 +5,7 @@
 <h3>CVPR 2026</h3>
 
 <h3>
-Tae Eun Choi*&nbsp;&nbsp;Sumin Shim*&nbsp;&nbsp;Junhyeok Kim&nbsp;&nbsp;Seong Jae Hwang
+Tae Eun Choi*&nbsp;&nbsp;&nbsp;Sumin Shim*&nbsp;&nbsp;&nbsp;Junhyeok Kim&nbsp;&nbsp;&nbsp;Seong Jae Hwang
 </h3>
 
 <h3>Yonsei University</h3>
