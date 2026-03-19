@@ -2,12 +2,11 @@
 
 # Anchoring and Rescaling Attention for Semantically Coherent Inbetweening
 
+<p><b><font size="6">CVPR 2026</font></b></p>
 
-## CVPR 2026
-
-### <span style="color:#1565c0">Tae Eun Choi\*</span> · <span style="color:#1565c0">Sumin Shim\*</span> · <span style="color:#1565c0">Junhyeok Kim</span> · <span style="color:#1565c0">Seong Jae Hwang</span>
-
-## Yonsei University
+<p><b><font size="5">
+Tae Eun Choi* · Sumin Shim* · Junhyeok Kim · Seong Jae Hwang
+</font></b></p>
 
 [![Project Website](https://img.shields.io/badge/Project-Page-blue)](https://teunchoi.github.io/TGI-project-page/) 
 [![arXiv](https://img.shields.io/badge/arXiv-2603.17651-b31b1b)](https://arxiv.org/abs/2603.17651) 
