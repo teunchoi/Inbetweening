@@ -2,130 +2,95 @@
 
 **CVPR 2026**
 
-[![Project Page](https://img.shields.io/badge/Project-Coming_Soon-blue)](#)
-[![arXiv](https://img.shields.io/badge/arXiv-Coming_Soon-b31b1b)](#)
-[![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-ffcc4d)](#)
+[![Project Page](https://img.shields.io/badge/Project-Coming_Soon-blue)](https://teunchoi.github.io/TGI-project-page/)
+[![arXiv](https://img.shields.io/badge/arXiv-2603.17651-b31b1b)](https://arxiv.org/abs/2603.17651)
+[![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-ffcc4d)](https://huggingface.co/datasets/use08174/TGI-Benchmark)
 
 > Training-free generative inbetweening with improved semantic fidelity, frame consistency, and pace stability.
 
 ## Overview
 
-This repository contains the official project page for:
+This repository contains the official implementation of **Anchoring and Rescaling Attention for Semantically Coherent Inbetweening**.
 
-**Anchoring and Rescaling Attention for Semantically Coherent Inbetweening**  
+Our work studies **text-conditioned generative inbetweening**, where intermediate frames are generated from the **first frame**, **last frame**, and a **text prompt**. We propose a **training-free** approach that improves semantic alignment, temporal consistency, and motion pacing without additional model training. We also introduce **TGI-Bench**, a benchmark designed for evaluating text-conditioned generative inbetweening under diverse sequence lengths and motion scenarios.
+
+**Authors**  
 *Tae Eun Choi\*, Sumin Shim\*, Junhyeok Kim, Seong Jae Hwang*  
 Yonsei University
 
-We propose a **training-free** approach for **text-conditioned generative inbetweening (GI)**, where intermediate frames are generated from the **first frame**, **last frame**, and a **text prompt**.
+---
 
-Our method addresses three key challenges in generative inbetweening:
+## Dataset
 
-- **Semantic fidelity**: generated frames should follow the text prompt accurately
-- **Frame consistency**: object identity and scene structure should remain stable across time
-- **Pace stability**: motion should progress smoothly without abrupt accelerations or stalls
+The **TGI-Bench** dataset is available on Hugging Face:
 
-To achieve this, we introduce:
-
-- **Keyframe-anchored Attention Bias (KAB)**  
-  Guides intermediate frames using semantic and temporal cues derived from the first/last keyframes and text.
-
-- **Rescaled Temporal RoPE (ReTRo)**  
-  Rescales temporal positional encoding to better preserve keyframes while improving overall temporal consistency.
-
-- **TGI-Bench**  
-  A new benchmark for **text-conditioned generative inbetweening**, designed to evaluate GI models across multiple sequence lengths and challenge categories.
+[https://huggingface.co/datasets/use08174/TGI-Benchmark](https://huggingface.co/datasets/use08174/TGI-Benchmark)
 
 ---
 
-## Method
+## Installation
 
-### 1. Keyframe-anchored Attention Bias (KAB)
+We recommend using a **conda** environment.
 
-KAB extracts anchor signals from the model's own cross-attention maps of the first and last keyframes, then interpolates them across time to guide intermediate frames.
+### Create environment
 
-This helps the model:
+Python **3.10 or higher** is required.
 
-- better follow the intended motion path
-- maintain stronger alignment with the text prompt
-- produce more stable motion pacing
+```bash
+conda create -n tgi python=3.10
+conda activate tgi
+```
 
-### 2. Rescaled Temporal RoPE (ReTRo)
+### Install dependencies
 
-ReTRo modifies temporal RoPE scaling inside self-attention:
+```bash
+pip install -r requirements.txt
+```
 
-- **higher scale near keyframes** to preserve endpoint fidelity
-- **lower scale in the middle frames** to widen temporal attention and improve consistency
-
-This simple adjustment reduces blur and artifacts while stabilizing the whole sequence.
-
----
-
-## TGI-Bench
-
-We introduce **TGI-Bench**, the first benchmark specifically designed for **text-conditioned generative inbetweening**.
-
-### Features
-
-- multiple sequence lengths: **25 / 33 / 65 / 81 frames**
-- text descriptions paired with keyframe sequences
-- challenge-based evaluation across:
-  - **dynamic motion**
-  - **linear motion**
-  - **occlusion**
-  - **near-static**
-
-TGI-Bench enables more fine-grained diagnosis of GI models beyond conventional video metrics.
+Once this is done, the environment setup is complete.
 
 ---
 
-## Main Results
+## Run Inference
 
-Without additional training, our method achieves state-of-the-art performance on multiple evaluation axes, including:
+To run inference with the default settings:
 
-- video generation quality
-- semantic fidelity
-- frame consistency
-- pace stability
-
-### 81-frame results
-
-| Method | PSNR ↑ | SSIM ↑ | LPIPS ↓ | FID ↓ | FVD ↓ | VBench ↑ |
-|---|---:|---:|---:|---:|---:|---:|
-| Wan | 17.63 | 0.6179 | 0.3945 | 82.90 | 0.2769 | 9.904 |
-| **Ours** | **18.17** | **0.6269** | **0.3818** | **77.59** | **0.2458** | **10.022** |
-
-### Human evaluation (81-frame)
-
-| Method | Frame Consistency ↑ | Semantic Fidelity ↑ | Pace Stability ↑ |
-|---|---:|---:|---:|
-| Wan | 3.50 | 3.69 | 3.65 |
-| **Ours** | **4.38** | **4.27** | **4.34** |
+```bash
+python inference.py
+```
 
 ---
 
-## Why it works
+## Optional Arguments
 
-Existing GI models often struggle when:
+You can customize inference with additional arguments:
 
-- the two keyframes are far apart
-- motion is large or non-linear
-- the text prompt specifies subtle semantics such as direction or action style
+```bash
+python inference.py \
+  --prompt "A freight train moves forward through heavy falling snow." \
+  --img_first example/first.jpg \
+  --img_last example/last.jpg \
+  --seed 0 \
+  --num_frames 81 \
+  --w_edge 8 \
+  --s_edge 1.06 \
+  --s_mid 0.94 \
+  --beta_end 0.7 \
+  --beta_mid 0.3
+```
 
-Our method explicitly strengthens both:
+### Argument description
 
-- **cross-attention guidance** from keyframes and text
-- **self-attention temporal structure** across the whole sequence
+- `--prompt`: text prompt
+- `--img_first`: path to the first frame
+- `--img_last`: path to the last frame
+- `--seed`: random seed
+- `--num_frames`: number of frames (`25`, `33`, `65`, `81`)
+- `--w_edge`: width of the fast region near both ends
+- `--s_edge`: scaling parameter near keyframes
+- `--s_mid`: scaling parameter for middle frames
+- `--beta_end`: endpoint weighting parameter
+- `--beta_mid`: middle-region weighting parameter
 
-This leads to more coherent inbetweening under difficult scenarios such as **dynamic motion** and **occlusion**.
-
----
-
-## Coming Soon
-
-- [ ] Project page
-- [ ] arXiv link
-- [ ] Code release
-- [ ] TGI-Bench release
-- [ ] Demo videos
-- [ ] BibTeX
+If not specified, default example values are used.
 
